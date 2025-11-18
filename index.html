@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Agenda y Psicólogos</title>
+    <link rel="stylesheet" href="style/inicio.css">       
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">MindWell</div>
+        <ul class="nav-links">
+            <li><a class="active" href="Inicio.html">Inicio</a></li>
+            <li><a href="Diario.html">Diario</a></li>
+            <li><a href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <div class="three-column-layout">
+            
+            <section class="col-calendar">
+                <h2>Mi Agenda</h2>
+                <div class="calendar-nav">
+                    <button id="prev-month-btn">&#9664;</button> 
+                    <span id="current-month-year">Septiembre 2025</span> 
+                    <button id="next-month-btn">&#9654;</button> 
+                </div>
+                
+                <div class="calendar-grid" id="calendar-days-grid">
+                    <div class="day-name">Su</div>
+                    <div class="day-name">Mo</div>
+                    <div class="day-name">Tu</div>
+                    <div class="day-name">We</div>
+                    <div class="day-name">Th</div>
+                    <div class="day-name">Fr</div>
+                    <div class="day-name">Sa</div>
+                </div> 
+            </section> 
+            
+            <section class="col-status">
+                <h2>Estado de la cita</h2>
+                <div class="appointment-list" id="appointment-list-container"> 
+                    <p style="text-align: center; color: #777; margin-top: 15px;">Selecciona un día en el calendario.</p>
+                </div>
+            </section>
+
+            <section class="col-psychologists">
+                <h2>Buscar Especialista</h2>
+                
+                <div class="search-psychologist">
+                    <input type="text" id="search-input" placeholder="Buscar Psicólogo..." title="Buscar Psicólogo">
+                </div>
+
+                <div id="psychologist-list">
+                    <p style="text-align: center; color: #777; margin-top: 15px;">Cargando psicólogos...</p>
+                </div>
+                
+            </section>
+        </div>
+        
+        <section class="info-panel">
+            <h3>¡Bienvenido a MindWell! Tu Primer Paso hacia el Bienestar!</h3>
+            <p class="highlight">
+                🧠 ¡Te damos una cálida bienvenida a MindWell! Entendemos que dar el paso hacia la búsqueda de apoyo psicológico es un acto de gran valentía y amor propio. 
+                En MindWell, te abrimos las puertas a un espacio seguro, confidencial y empático, diseñado para acompañarte profesionalmente en tu viaje hacia el bienestar emocional y el crecimiento personal.
+                Además de conectarte con nuestros especialistas, tendrás acceso a tu **Apartado Personal**. Este es tu espacio privado para la reflexión, donde podrás completar tests semanales diseñados para medir y comprender tu estado emocional en tiempo real, y utilizar el **Diario Personal** como una herramienta de desahogo y autoexploración.
+                En MindWell, te facilitamos las herramientas para que te relajes, te observes y tomes las riendas de tu viaje hacia una vida más serena y consciente. **¡Estamos listos para empezar!** </p>
+        </section>
+
+    </main>
+    
+    <script src="javascript/calendar.js"></script> 
+    <script src="javascript/chats_psicologos.js"></script> 
+
+</body>
+</html>

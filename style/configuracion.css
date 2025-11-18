@@ -1,0 +1,239 @@
+ .body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6; /* Un gris muy claro para el fondo general */
+            color: #333; /* Color de texto base */
+        }
+
+        /* Variables de color */
+        :root {
+            --color-dark-blue: #2c3e50; /* Fondo principal de la barra lateral/superior */
+            --color-light-blue: #3498db; /* Azul de botón/destacado */
+            --color-text-light: #ecf0f1; /* Gris muy claro para texto sobre fondo oscuro */
+            --color-text-dark: #34495e; /* Gris oscuro para títulos */
+            --color-border-light: #bdc3c7; /* Borde gris claro */
+            --color-hover: #34495e; /* Fondo para hover en enlaces */
+        }
+
+
+        /* Estilos de la barra lateral principal (Sin cambios) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 220px;
+            
+            /* Estilos visuales*/
+            background-color: var(--color-dark-blue);
+            color: var(--color-text-light);
+            padding: 20px 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar .logo {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            color: var(--color-text-light);
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Contenedor de la navegación principal */
+        .sidebar .nav-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        /* Enlaces de navegación */
+        .sidebar .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 1.1em;
+        }
+
+        /* Efecto al pasar el ratón */
+        .sidebar .nav-links a:hover {
+            background-color: var(--color-hover);
+            color: white;
+        }
+
+        /* Estilo para el enlace activo */
+        .sidebar .nav-links a.active {
+            background-color: var(--color-light-blue);
+            color: white;
+            font-weight: 600;
+            border-left: 5px solid white;
+            padding-left: 15px;
+        }
+        
+        .sidebar .navbar {
+            width: 100%;
+        }
+
+
+        /* Estilos de contenido */
+        .main {
+            margin-left: 220px; /* Ajusta el margen al ancho de la barra lateral */
+            padding: 30px;
+            /* Eliminamos max-width y box-sizing aquí para aplicarlos al contenedor interno */
+        }
+        
+        /* *************************************************** */
+        /* ESTILOS NUEVOS PARA EL DISEÑO DE CONFIGURACIÓN */
+        /* *************************************************** */
+
+        .settings {
+            background-color: white;
+            padding: 0; /* Eliminamos el padding aquí y lo aplicamos dentro del wrapper */
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            max-width: 1000px; /* Ancho máximo para el panel de configuración */
+        }
+        
+        .settings h2 {
+            display: none; /* Ocultamos el título principal para que el subtítulo de la vista activa lo reemplace */
+        }
+
+        /* Contenedor Flexbox para la estructura de 2 columnas */
+        .config-wrapper {
+            display: flex; 
+            min-height: 500px; /* Altura mínima para que el panel se vea bien */
+            border-radius: 8px;
+            overflow: hidden; /* Asegura que no se salga nada del borde */
+        }
+
+        /* COLUMNA IZQUIERDA: Sub-navegación de Configuración */
+        .config-sidebar {
+            flex: 0 0 250px; /* Ancho fijo */
+            background-color: #f7f7f7; /* Fondo sutil para el sub-menú */
+            padding: 20px 0;
+            border-right: 1px solid #eee;
+        }
+
+        .config-sidebar h3 {
+            padding: 0 20px 10px;
+            font-size: 1.2em;
+            color: var(--color-text-dark);
+            border-bottom: 1px solid #eee;
+            margin: 0 0 10px 0;
+        }
+
+        .config-option {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95em;
+            transition: background-color 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .config-option:hover {
+            background-color: #e0e0e0;
+            color: var(--color-text-dark);
+        }
+
+        .config-option.active {
+            background-color: #fff; /* Fondo blanco para destacar la vista activa */
+            color: var(--color-light-blue);
+            font-weight: 600;
+            border-left: 3px solid var(--color-light-blue); /* Barra de color para destacar */
+        }
+
+        /* COLUMNA DERECHA: Contenido de la Opción Seleccionada */
+        .config-content {
+            flex: 1; /* Ocupa el espacio restante */
+            padding: 30px; /* Padding interno para el contenido de la vista */
+        }
+
+        /* Control de las vistas individuales */
+        .config-view {
+            display: none; /* Ocultar todas las vistas por defecto */
+        }
+
+        .config-view.active {
+            display: block; /* Mostrar solo la vista activa */
+        }
+
+        /* Estilos para el contenido de la vista (mantenemos los estilos anteriores) */
+        .config-view h3 {
+             color: var(--color-light-blue);
+             font-size: 1.5em;
+             margin-top: 0;
+             margin-bottom: 20px;
+             padding-bottom: 5px;
+             border-bottom: 1px dashed var(--color-border-light);
+        }
+        
+        .config-view label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        .config-view input[type="text"],
+        .config-view input[type="email"],
+        .config-view input[type="tel"] {
+            width: 350px; /* Ancho fijo para los campos */
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .config-view input:focus {
+            border-color: var(--color-light-blue);
+            outline: none;
+        }
+        
+        /* Estilos de botones */
+        .config-view button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        /* Botón primario  */
+        .config-view button:first-of-type {
+            background-color: var(--color-light-blue);
+            color: white;
+        }
+
+        .config-view button:first-of-type:hover {
+            background-color: #2980b9;
+        }
+
+        /* Botón secundario */
+        .config-view button:last-of-type {
+            background-color: var(--color-border-light);
+            color: var(--color-text-dark);
+        }
+        
+        .config-view button:last-of-type:hover {
+            background-color: #aeb5bb;
+        }

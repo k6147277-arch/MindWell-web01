@@ -1,0 +1,257 @@
+ /* variables de color*/
+        :root {
+            --color-dark-blue: #2c3e50;
+            --color-light-blue: #3498db;
+            --color-text-dark: #333;
+            --color-background: #f4f7f6;
+            --color-border-subtle: #ddd;
+            --color-social-twitter: #1DA1F2;
+            --color-social-facebook: #3b5998;
+            --color-social-green: #008000;
+            --color-social-green-light: #549E70;
+        }
+
+        
+        .body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white; /* Fondo blanco según la imagen */
+            color: var(--color-text-dark);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* barra de navegacion*/
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-dark-blue); 
+        }
+
+        .navbar .logo .dark{
+            color:  var(--color-light-blue);
+
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: var(--color-text-dark);
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: var(--color-light-blue);
+        }
+
+        
+        .navbar .action-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            border: 1px solid var(--color-light-blue);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar .login-btn {
+            background-color: transparent;
+            color: var(--color-light-blue);
+        }
+        .navbar .login-btn:hover {
+            background-color: #f0f8ff;
+        }
+
+        .navbar .signup-btn {
+            background-color: var(--color-light-blue);
+            color: white;
+            margin-left: 10px;
+        }
+        .navbar .signup-btn:hover {
+            background-color: #2980b9;
+        }
+
+        
+        .container {
+            flex-grow: 1; /* Ocupa el espacio restante */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        /* Estructura de las dos columnas */
+        .login-box, .image-box {
+            height: 600px; 
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .login-box {
+            width: 40%;
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .image-box {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #9b59b6;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.2);
+            background-color: var(--color-background);
+        }
+
+        .cloud-icon {
+            font-size: 4em;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 115px;
+            left: 15%;
+        }
+
+        /* Estilos de inicio*/
+        .login-box h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .login-box p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .login-box form {
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .login-box button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-dark-blue);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-box button[type="submit"]:hover {
+            background-color: #1f3242;
+        }
+
+        /* Botones de Redes Sociales */
+        .social-login {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+        .social-login button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .social-login button:hover { opacity: 0.9; }
+
+        .social-login  .google-btn{
+            background-color: var(--color-social-twitter);
+            color: white;
+        }
+        
+        /* Enlaces inferiores */
+        .login-box .links {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            color: #999;
+        }
+        .login-box .links a {
+            color: var(--color-light-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .login-box .links a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Estilo del contenedor del marcador de posición */
+.image-box .placeholder-image {
+    /* Quitamos el contenido de texto y padding que podrían interferir */
+    font-size: 0; /* Oculta el texto o contenido de fondo si existe */
+    color: transparent;
+    padding: 0;
+    
+    /* Le damos un tamaño definido al contenedor si lo necesita, 
+       pero lo mejor es que se ajuste al 100% de su padre si es un fondo */
+    width: 100%; 
+    height: 100%; 
+
+    /* Aseguramos que los hijos se puedan posicionar */
+    position: relative; 
+    
+    /* Centramos el contenido por si el padre tiene display: flex/grid */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+/* Regla clave: Estilo para la imagen real */
+.image-box .placeholder-image img {
+    width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+    height: 100%; /* La imagen ocupa el 100% de la altura del contenedor */
+    object-fit: cover; /* Esto es crucial: asegura que la imagen cubra todo el área sin distorsionarse, recortando los bordes si es necesario. */
+    border-radius: inherit; /* Si el padre (placeholder-image) tiene bordes redondeados */
+}
+
+/* Ocultamos el icono SVG ya que la imagen real está presente */
+.image-box .placeholder-image svg {
+    display: none;
+}

@@ -1,0 +1,370 @@
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* variables de color*/
+:root {
+    --color-dark-blue: #2c3e50; 
+    --color-light-blue: #3498db; 
+    --color-text-light: #ecf0f1; 
+    --color-text-dark: #34495e; 
+    --color-border-light: #bdc3c7; 
+    --color-hover: #34495e; 
+    
+    /* Colores de estado de citas de la imagen */
+    --color-completed: #2ecc71;  /* Verde */
+    --color-pending: #f1c40f; 	/* Amarillo */
+    --color-canceled: #e74c3c; 	/* Rojo */
+    --color-day-highlight: #2ecc71; /* Verde para el día actual/seleccionado */
+    --color-day-highlight-alt: #f39c12; /* Naranja/Amarillo para otro día */
+}
+
+
+/* Estilos de la barra lateral fija*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px; 
+    background-color: var(--color-dark-blue);
+    color: var(--color-text-light);
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .logo {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    color: var(--color-text-light);
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar .nav-links { list-style: none; padding: 0; margin: 0; width: 100%; }
+.sidebar .nav-links a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 1.1em;
+}
+
+.sidebar .nav-links a:hover { background-color: var(--color-hover); }
+
+.sidebar .nav-links a.active {
+    background-color: var(--color-light-blue);
+    font-weight: 600;
+    border-left: 5px solid white;
+    padding-left: 15px;
+}
+
+
+/* contenido principal*/
+.main-content {
+    margin-left: 220px; /* Desplaza el contenido al lado de la barra lateral */
+    padding: 30px;
+    display: flex;
+    flex-direction: column; 
+    gap: 30px; 
+}
+
+/* Estilos de título */
+.main-content h2 {
+    color: var(--color-text-dark);
+    font-size: 1.8em; /* Ajustado para mejor jerarquía */
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.main-content h3 {
+    color: var(--color-text-dark);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+.main-content section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* nuevo contenedor de 3 columnas */
+.three-column-layout {
+    display: flex;
+    gap: 20px; /* Espacio entre las 3 columnas */
+    width: 100%;
+    max-width: 1300px; 
+    margin-top: 20px;
+}
+
+/* Estilos para las nuevas secciones */
+.col-calendar, .col-status, .col-psychologists {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.col-calendar { width: 300px; flex-shrink: 0; }
+.col-status { width: 300px; flex-shrink: 0; }
+.col-psychologists { flex-grow: 1; min-width: 450px; } 
+
+/* Títulos de columna */
+.three-column-layout h2 {
+    color: var(--color-text-dark);
+    font-size: 1.8em;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: none; 
+}
+
+/* calendario */
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.calendar-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    padding: 0 5px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-grid div {
+    padding: 8px 5px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.calendar-grid .day-number:hover {
+    background-color: #eee;
+}
+
+/* Estilo para el día seleccionado */
+.calendar-grid .day-number.selected-day { 
+    border: 2px solid var(--color-light-blue); /* Resalta con un borde azul */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); 
+    padding: 6px 3px; /* Compensar por el borde */
+}
+
+
+.calendar-grid .day-name { font-weight: bold; color: var(--color-text-dark); cursor: default; }
+
+/* Colores de las citas en el calendario */
+.calendar-grid .day-number.red { background-color: var(--color-canceled); color: white; }
+.calendar-grid .day-number.green { background-color: var(--color-completed); color: white; }
+.calendar-grid .day-number.yellow { background-color: var(--color-pending); color: #333; }
+
+/* Asegurar que el texto sea legible en los días coloreados */
+.calendar-grid .day-number.red, .calendar-grid .day-number.green { color: white; }
+
+
+/* Estado de Citas */
+.appointment-list { display: flex; flex-direction: column; gap: 15px; }
+
+.appointment-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border-light);
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Colores de las líneas laterales */
+.status-completed { border-left: 5px solid var(--color-completed); }
+.status-pending { border-left: 5px solid var(--color-pending); }
+.status-canceled { border-left: 5px solid var(--color-canceled); }
+
+.appointment-info { padding-left: 15px; flex-grow: 1; }
+
+.appointment-info .time { font-weight: 600; font-size: 1.0em; color: var(--color-text-dark); display: block; }
+.appointment-info .doctor { font-size: 0.9em; color: #666; }
+
+.appointment-item select {
+    padding: 5px;
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Estilo de los psicologo */
+.search-psychologist { position: relative; margin-bottom: 25px; }
+
+.search-psychologist input {
+    padding: 10px 15px; 
+    width: calc(100% - 30px); /* Ajusta el ancho para el padding */
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    font-size: 1em;
+    text-indent: 25px; /* Crea espacio a la izquierda para el ícono/texto */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s;
+}
+
+.search-psychologist input:focus {
+    border-color: var(--color-light-blue);
+    outline: none;
+}
+
+
+/* Modificación para mostrar el placeholder como un ícono */
+.search-psychologist::before {
+    content: "🔍"; /* Ícono */
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.1em;
+    pointer-events: none; 
+    z-index: 10;
+}
+
+/* --- ESTILOS DE LA LISTA DE PSICÓLOGOS (NUEVOS/ACTUALIZADOS) --- */
+
+.psychologist-list {
+    display: flex; 
+    flex-direction: column;
+    gap: 15px; /* Espacio entre tarjetas */
+}
+
+.psychologist-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px; 
+    margin-bottom: 0; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: default; /* Solo los botones son clickeables */
+    transition: box-shadow 0.2s;
+}
+
+.psychologist-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el ratón */
+    background-color: #fcfcfc;
+}
+
+.psychologist-card img {
+    width: 80px; /* Más grande para destacar */
+    height: 80px; /* Más grande para destacar */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    flex-shrink: 0; 
+    border: 3px solid var(--color-light-blue); /* Borde de color para destacar */
+}
+
+.psychologist-details { flex-grow: 1; }
+
+.psychologist-details h4 {
+    /* REGLAS CLAVE: Alinean el nombre a la izquierda y los botones a la derecha */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    margin: 0 0 5px 0;
+}
+
+.action-buttons {
+    display: flex;
+    /* Al solo haber un botón, el 'gap' no es relevante, pero se mantiene la clase de flexibilidad */
+    gap: 8px; 
+    justify-content: flex-end; /* Asegura que el botón 'Chatear' se alinee a la derecha */
+}
+
+.action-buttons button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+    white-space: nowrap; 
+}
+
+/* Estilo para el botón Chatear (Acción principal) */
+.action-buttons .chat-btn {
+    background-color: #2ecc71; /* Verde más amigable */
+    color: white;
+}
+
+.action-buttons .chat-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+}
+
+/* *** SE ELIMINÓ EL ESTILO ESPECÍFICO DE '.profile-btn' ***
+    El botón de chatear toma el 100% del espacio disponible en 'action-buttons'
+*/
+
+/* Otros detalles de la tarjeta */
+.rating {
+    color: var(--color-pending); 
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.description {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* FIN DE ESTILOS DE PSICÓLOGOS */
+/* ----------------------------------------------------------------- */
+
+/* Estilos para las secciones que no van en las 3 columnas */
+.info-panel {
+    padding: 25px;
+    border-left: 5px solid var(--color-light-blue);
+}
+.highlight {
+    color: #555;
+    line-height: 1.6;
+}

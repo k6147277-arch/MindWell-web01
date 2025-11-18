@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Mi Diario Personal</title>
+    <link rel="stylesheet" href="style/diario.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">MindWell</div>
+        <ul class="nav-links">
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li class="parent-active"><a href="Diario.html">Diario</a></li>
+            <li><a href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+            
+            <li class="sub-section-link"><a href="Diario.html" class="active-sub">Diario personal</a></li>
+            <li class="sub-section-link"><a href="Registro.html"><span class="icon">⚡</span> Test Diario</a></li>
+            <li class="sub-section-link"><a href="Estadistica.html"><span class="icon">📊</span> Estadísticas</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="margin: 0; border-bottom: none;">Mi Diario: <span id="current-month-year-title">Abril 2025</span></h2>
+            <button id="new-entry-btn" style="padding: 10px 20px; background-color: var(--color-light-blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">+ Nueva Entrada</button>
+        </div>
+
+        <section class="diary-calendar-section">
+            <div class="calendar-nav">
+                <button id="prev-month-btn">&#9664;</button> 
+                <span id="current-month-year">Abril 2025</span> 
+                <button id="next-month-btn">&#9654;</button> 
+            </div>
+            
+            <div class="calendar-grid" id="calendar-days-grid">
+                </div> 
+        </section>
+
+        <section class="entry-view-panel" id="entry-view-panel">
+            <h3>Entrada del día: <span id="entry-display-date">Selecciona una fecha</span></h3>
+            <p id="entry-display-text" style="color: #555; line-height: 1.6;">Selecciona un día en el calendario para ver tu entrada o usa "Nueva Entrada" para comenzar.</p>
+        </section>
+
+        <div id="entry-modal" class="modal">
+            <div class="modal-content">
+                <h3>Nueva Entrada de Diario: <span id="modal-date"></span></h3>
+                
+                <textarea id="diary-entry-text" placeholder="¿Cómo estuvo tu día? Escribe tu reflexión aquí..." style="width: 100%; height: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px; resize: none;"></textarea>
+                
+                <div id="emotion-selection" style="margin-bottom: 20px;">
+                    </div>
+                
+                <div style="text-align: right;">
+                    <button id="cancel-entry-btn" style="padding: 10px 15px; background: #ccc; border: none; border-radius: 4px; margin-right: 10px; cursor: pointer;">Cancelar</button>
+                    <button id="save-entry-btn" style="padding: 10px 15px; background: var(--color-light-blue); color: white; border: none; border-radius: 4px; cursor: pointer;" disabled>Guardar Entrada</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="javascript/diario.js"></script> 
+</body>
+</html>

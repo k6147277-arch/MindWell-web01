@@ -1,0 +1,190 @@
+        .body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* variables de color*/
+        :root {
+            --color-dark-blue: #2c3e50;
+            --color-light-blue: #3498db;
+            --color-text-light: #ecf0f1;
+            --color-text-dark: #34495e;
+            --color-border-light: #bdc3c7;
+            --color-hover: #34495e;
+        }
+
+
+        /* estilo de la barra */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 220px;
+            
+            /* Estilos visuales */
+            background-color: var(--color-dark-blue);
+            color: var(--color-text-light);
+            padding: 20px 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Título Principal  */
+        .sidebar .logo {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            color: var(--color-text-light);
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Contenedor de la navegación principal*/
+        .sidebar .nav-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px; 
+            width: 100%;
+        }
+
+        /* Estilos generales de los enlaces en el sidebar */
+        .sidebar .nav-links a,
+        .sidebar .secondary-links a {
+            display: block;
+            padding: 15px 20px; 
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 1.1em;
+        }
+
+        /* Efecto al pasar el ratón para todos los enlaces */
+        .sidebar .nav-links a:hover,
+        .sidebar .secondary-links a:hover {
+            background-color: var(--color-hover);
+            color: white;
+        }
+
+        /* Estilo para el enlace activo principal*/
+        .sidebar .nav-links a.active {
+            background-color: var(--color-light-blue);
+            color: white;
+            font-weight: 600;
+            border-left: 5px solid white;
+            padding-left: 15px;
+        }
+        
+        /* Estilos para el título secundario */
+        .sidebar h2 {
+            font-size: 1.2em;
+            color: var(--color-border-light);
+            padding: 0 20px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-weight: 500;
+        }
+
+        /* Estilos para los enlaces del submenú */
+        .sidebar .secondary-links {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar .secondary-links a {
+            font-size: 1em;
+            padding: 10px 20px;
+        }
+        
+        /* Enlace activo dentro del submenú*/
+        .sidebar .secondary-links a.active {
+            background-color: #5d6d7e; 
+            border-left: 5px solid var(--color-light-blue);
+            padding-left: 15px;
+            color: white;
+        }
+
+
+        /* Estilos de contenido principal */
+        .main {
+            margin-left: 220px;
+            padding: 30px;
+            max-width: calc(100% - 220px);
+            box-sizing: border-box;
+        }
+
+        /* Estilos para la sección principal */
+        .main .estadisticas {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .main h2 {
+            color: var(--color-text-dark);
+            border-bottom: 1px solid var(--color-border-light);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .main h3 {
+            color: var(--color-light-blue);
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        /* Estilos para la sección del gráfico */
+        .main .grafico {
+            text-align: center;
+            margin-bottom: 40px;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .main .grafico img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para el resumen de texto */
+        .main .resumen {
+            padding: 20px;
+            background-color: #e0f2f7; /* Un fondo suave para el resumen */
+            border-left: 4px solid var(--color-light-blue);
+            border-radius: 4px;
+        }
+
+        .main .resumen p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .main .resumen strong {
+            color: var(--color-text-dark);
+        }
+        
+    
+        .filler-content {
+            height: 800px;
+        }

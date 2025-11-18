@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Mensajes</title>
+    <link rel="stylesheet" href="style/chats.css">
+    
+    
+</head>
+<body>
+    
+    <aside class="sidebar">
+        <div class="logo">MindWell</div>
+
+
+        <ul class="nav-links">
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="Diario.html">Diario</a></li>
+            <li><a class="active" href="chats.html">Mensajes</a></li> <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+        </ul>
+        
+        </aside>
+
+   <main class="main">
+    
+    <div class="chat-sidebar">
+        <h1>Mensajes</h1>
+        <div class="search-box">
+            <input type="text" id="chat-search-input" placeholder="Buscar un chat">
+        </div>
+        
+        <div class="chat-list" id="chat-list-container"> 
+            </div>
+    </div>
+    
+    <div class="chat-window">
+        
+        <div class="chat-header" id="chat-header">
+            <div class="contact-info">
+                <img id="header-avatar" src="" alt="Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 15px;">
+                <strong id="header-name">Selecciona un chat</strong>
+            </div>
+            <div class="actions">
+                <span class="header-icon" id="delete-chat-btn" title="Eliminar Chat">🗑️</span> 
+                <span class="header-icon" title="Llamar">📞</span>
+                <span class="header-icon" title="Videollamada">🎥</span>
+                <span class="header-icon" title="Buscar">🔎</span>
+            </div>
+        </div>
+        
+        <div class="messages-area" id="messages-area"> 
+            <p style="text-align: center; color: #777; margin-top: 50px;">Selecciona una conversación para empezar.</p>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Escribir mensaje...">
+            <button id="send-message-btn" title="Enviar">▶</button>
+        </div>
+        
+    </div>
+</main>
+<script src="javascript/chats_psicologos.js"></script>
+
+</body>
+</html>

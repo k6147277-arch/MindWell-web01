@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Configuración de Cuenta</title>
+    <link rel="stylesheet" href="style/configuracion.css">
+</head>
+<body>
+    
+    <div class="sidebar">
+        <nav class="navbar">
+            <div class="logo">MindWell</div>
+            <ul class="nav-links">
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="Diario.html">Diario</a></li>
+                <li><a href="chats.html">Mensajes</a></li>
+                <li><a href="Perfil.html">Perfil</a></li>
+                <li><a class="active" href="Configuracion.html">Configuración</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main">
+        <section class="settings">
+            <h2>Configuración</h2> 
+            
+            <div class="config-wrapper">
+                
+                <div class="config-sidebar">
+                    <h3>Ajustes</h3>
+                    <a href="#" class="config-option active" data-view="cuenta">👤 Cuenta Personal</a>
+                    <a href="#" class="config-option" data-view="seguridad">🔒 Seguridad y Acceso</a>
+                    <a href="#" class="config-option" data-view="privacidad">👁️‍🗨️ Privacidad de Datos</a>
+                    <a href="#" class="config-option" data-view="notificaciones">🔔 Notificaciones</a>
+               
+                    <a href="#" class="config-option" data-view="soporte">❓ Soporte y Ayuda</a>
+                </div>
+
+                <div class="config-content">
+                    
+                    <div id="view-cuenta" class="config-view active">
+                        <h3>Cuenta Personal</h3>
+                        <form>
+                            <label for="username">Nombre de Usuario:</label>
+                            <input type="text" id="username" name="username" value="Adddynand4soc" required>
+
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" value="jensellsaballosg@gmail.com" required>
+
+                            <label for="phone">Número de celular:</label>
+                            <input type="tel" id="phone" name="phone" value="1234-1234">
+
+                            <div class="button-group">
+                                <button type="button">cambiar clave</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="view-seguridad" class="config-view">
+                        <h3>Seguridad y Acceso</h3>
+                        <p>Gestiona tu contraseña, verificación en dos pasos y dispositivos conectados.</p>
+                        <button type="button">Cambiar Contraseña</button>
+                    </div>
+
+                    <div id="view-privacidad" class="config-view">
+                        <h3>Privacidad de Datos</h3>
+                        <p>Controla cómo se usan tus datos en MindWell y revisa nuestros Términos de Servicio. Tus entradas de diario son siempre privadas.</p>
+                        <label><input type="checkbox"> Permitir análisis anónimos para mejorar la app.</label>
+                    </div>
+                    
+                    <div id="view-notificaciones" class="config-view">
+                        <h3>Notificaciones</h3>
+                        <p>Elige qué tipo de alertas quieres recibir sobre citas, recordatorios del diario y resultados de tests.</p>
+                        <label><input type="checkbox" checked> Recordatorios de citas.</label>
+                        <label><input type="checkbox"> Novedades de MindWell.</label>
+                    </div>
+
+
+                    <div id="view-soporte" class="config-view">
+                        <h3>Soporte y Ayuda</h3>
+                        <p>Encuentra respuestas a preguntas frecuentes o contáctanos directamente para soporte técnico o psicológico.</p>
+                        <button type="button">Ver Preguntas Frecuentes</button>
+                        <button type="button">Enviar Mensaje a Soporte</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarLinks = document.querySelectorAll('.config-option');
+            const configViews = document.querySelectorAll('.config-view');
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Evita que el enlace recargue la página
+
+                    // 1. Quitar 'active' de todos los enlaces y vistas
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    configViews.forEach(v => v.classList.remove('active'));
+
+                    // 2. Añadir 'active' al enlace clickeado
+                    e.currentTarget.classList.add('active');
+
+                    // 3. Mostrar la vista correspondiente
+                    const viewId = e.currentTarget.getAttribute('data-view');
+                    document.getElementById('view-' + viewId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

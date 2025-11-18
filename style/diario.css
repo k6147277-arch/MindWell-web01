@@ -1,0 +1,130 @@
+  /* Variables de Color */
+        :root {
+            --color-dark-blue: #2c3e50; 
+            --color-light-blue: #3498db; 
+            --color-text-light: #ecf0f1; 
+            --color-text-dark: #34495e; 
+            --color-border-light: #bdc3c7; 
+            --color-hover: #34495e; 
+            --color-background: #f4f7f6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-background);
+            color: #333;
+        }
+
+        /* Estilos de la barra lateral fija (SIN CAMBIOS) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 220px; 
+            background-color: var(--color-dark-blue);
+            color: var(--color-text-light);
+            padding: 20px 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+        }
+
+        .sidebar .logo { font-size: 2.2em; font-weight: 700; margin-bottom: 40px; padding: 0 20px; color: var(--color-text-light); letter-spacing: 1px; text-align: center; }
+        .sidebar .nav-links { list-style: none; padding: 0; margin: 0; width: 100%; }
+        
+        /* Estilos generales para todos los enlaces del menú principal (SIN CAMBIOS) */
+        .sidebar .nav-links > li > a { 
+            display: block;
+            padding: 15px 20px;
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .sidebar .nav-links > li > a:hover { background-color: var(--color-hover); }
+        
+        /* Estilo para el elemento de menú "Diario" (el padre activo) (SIN CAMBIOS) */
+        .sidebar .nav-links > li.parent-active > a { 
+            background-color: var(--color-light-blue);
+            font-weight: 600;
+            border-left: 5px solid white;
+            padding-left: 15px;
+        }
+
+        /* Estilos para las sub-secciones que aparecen al final (SIN CAMBIOS) */
+        .sidebar .nav-links .sub-section-link a {
+            padding: 15px 20px 15px 25px; /* Ajuste el padding para alineación */
+            font-size: 1.1em;
+        }
+        /* Estilo de la sub-sección activa ("Diario personal" en este caso) (SIN CAMBIOS) */
+        .sidebar .nav-links .sub-section-link a.active-sub {
+            background-color: #3e5063; 
+            font-weight: 600;
+        }
+
+        /* Estilos para los íconos (SIN CAMBIOS) */
+        .sidebar .nav-links .sub-section-link a span.icon {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Contenido principal y Calendario (SIN CAMBIOS) */
+        .main-content {
+            margin-left: 220px; 
+            padding: 30px;
+            display: flex;
+            flex-direction: column; 
+            gap: 30px; 
+        }
+
+        .main-content h2 {
+            color: var(--color-text-dark);
+            font-size: 1.8em; 
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        
+        /* Estilos de calendario (SIN CAMBIOS) */
+        .diary-calendar-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            max-width: 600px; 
+        }
+
+        .calendar-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-weight: 600; padding: 5px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+        .calendar-grid .day-name { font-weight: bold; color: var(--color-text-dark); cursor: default; padding: 8px 0; }
+        .calendar-grid .day-number { padding: 8px 5px; border-radius: 50%; font-weight: 500; cursor: pointer; position: relative; }
+        .calendar-grid .day-number.selected-day { border: 2px solid var(--color-light-blue); box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); padding: 6px 3px; }
+        .calendar-grid .day-emoji { position: absolute; top: -5px; right: 0px; font-size: 0.8em; line-height: 1; }
+
+        /* Estilos para la ventana modal (NUEVOS ESTILOS) */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Posición fija para cubrir la ventana */
+            z-index: 1000; /* Asegura que esté por encima de todo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+            justify-content: center; /* Centrar horizontalmente el contenido */
+            align-items: center; /* Centrar verticalmente el contenido */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 90%; /* Ancho base */
+            max-width: 500px; /* Ancho máximo para que no sea muy grande */
+            position: relative;
+        }
